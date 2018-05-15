@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №1. Задание №2</title>
+  <style type="text/css">
+ table {
+ width: 30%;
+ height: 100%;
+ }
+</style>
+</head>
+<body>
+<h3>Нахождение значения ф-ции в точке</h3>
+<script language="JavaScript">
+  function ev(obj)
+   {	   		
+	var fun1 = obj.f1.value
+	var xv = Number(obj.x1.value)
+	obj.out1.value = eval(fun1.replace(/x/g,xv))
+   }
+</script>
+<form name="form1">
+<table>
+<tr><td>Введите функцию:</td><td><input name="f1" value="Math.pow(x,2)+8"></td><tr>
+<tr><td>Введите значение x:</td><td><input name="x1" size="5" value="2"></td></tr>
+</table>
+<input type="button" value="Вычислить" onclick="ev(form1)">
+<hr>
+Значение функции в заданной точке <input id="out1" size="6"><br>
+<input type="button" value="Отменить" onclick="document.getElementById('out1').value=''">
+</form>
+</body>
+</html>

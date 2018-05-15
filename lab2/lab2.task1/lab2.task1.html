@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №2. Задание №1</title>
+</head>
+<body>
+<form name="form1">
+<h3>Изменение свойств изображения</h3>
+<image src="p1.gif" alt="My picture" title="My picture" style="border:10px solid red; height: 100px; width: 100px;">
+<p>Для изменения размеров введите</p>
+<p>ширину (width): <input size="3" value="100" name="w1"></p>
+<p>высоту (height): <input size="3" value="100" name="h1"></p>
+<p>Для задания рамки введите</p>
+<p>толщину рамки (border): <input size="3" value="10" name="bw1"></p>
+<p>цвет рамки (color): <input size="3" value="red" name="bc1"></p>
+<p>Альтернативный текст (alt): <input size="15" value="My picture" name="altt"></p>
+<p><input type="button" value="Просмотр" onclick="view()"> <input type="button" value="Отменить" onclick="res()"></p>
+</form>
+<script language="JavaScript">
+  function view(){
+   document.images[0].style.width=form1.w1.value+"px"
+   document.images[0].style.height=form1.h1.value+"px"
+   document.images[0].style.border=form1.bw1.value+"px solid "+form1.bc1.value  
+   document.images[0].alt=form1.altt.value
+   document.images[0].title=form1.altt.value
+   }
+  function res(){
+   document.images[0].style.width="100px"
+   document.images[0].style.height="100px"
+   document.images[0].style.border="10px solid red"   
+   document.images[0].alt="My picture"
+   document.images[0].title="My picture"
+   form1.w1.value="100"
+   form1.h1.value="100"
+   form1.bw1.value="10"
+   form1.bc1.value="red"
+   form1.altt.value="My picture"
+}  
+</script>
+</body>
+</html>

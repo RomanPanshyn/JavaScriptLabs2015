@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №3. Задание №2</title>
+  <style type="text/css">
+td{
+text-align: center;
+}
+  </style>
+</head>
+<body>
+<h3>Меню</h3>
+<script language="JavaScript">
+  function ev(){
+  var ci = document.getElementById("cold").selectedIndex
+  var cd = document.getElementById("cold").options
+  var cdn = cd[ci].text
+  var cdp = cd[ci].value
+  var fi = document.getElementById("first").selectedIndex
+  var fd = document.getElementById("first").options
+  var fdn = fd[fi].text
+  var fdp = fd[fi].value
+  var drinksArray = [["a",0],["s",0],["d",0],["f",0],["g",0],["h",0]]
+  var drinksSum = 0
+  for (var i=0; i<6; i++){
+   if (document.getElementById("drinks").options[i].selected){
+    var drd = document.getElementById("drinks").options
+	var drdn = drd[i].text
+    var drdp = drd[i].value	
+	drinksSum = drinksSum + Number(drdp)
+    drinksArray[i][0] = drdn
+	drinksArray[i][1] = drdp
+   }
+  }
+  var di = document.getElementById("dessert").selectedIndex
+  var dd = document.getElementById("dessert").options
+  var ddn = dd[di].text
+  var ddp = dd[di].value
+  var si = document.getElementById("second").selectedIndex
+  var sd = document.getElementById("second").options
+  var sdn = sd[si].text
+  var sdp = sd[si].value
+  var sum = Number(cdp)+Number(fdp)+Number(drinksSum)+Number(ddp)+Number(sdp)
+  var newWindow = window.open()
+newWindow.document.write('<html><title>Ваш заказ</title><body><h3>Вы заказали:</h3>')
+newWindow.document.write('<form>')
+newWindow.document.write('<ul><li>'+cdn+' - '+cdp+'руб.'+'</li>')
+newWindow.document.write('<li>'+fdn+' - '+fdp+'руб.'+'</li>')
+newWindow.document.write('<li>Напитки<ol>')
+for (var i=0; i<6; i++){
+ if (drinksArray[i][1]!=0){
+  newWindow.document.write('<li>'+drinksArray[i][0]+' - '+drinksArray[i][1]+'руб.'+'</li>')
+ }
+}
+newWindow.document.write('</ol></li>')
+newWindow.document.write('<li>'+ddn+' - '+ddp+'руб.'+'</li>')
+newWindow.document.write('<li>'+sdn+' - '+sdp+'руб.'+'</li></ul>')
+newWindow.document.write('<h3>Итого к оплате - '+sum+'руб.</h3>')
+newWindow.document.write('</form></body></html>')
+   }
+   
+function res(){
+ form1.cold.selectedIndex = 0
+ form1.first.selectedIndex = 0
+ document.getElementById("drinks").options[0].selected = true
+ document.getElementById("drinks").options[1].selected = true
+ document.getElementById("drinks").options[2].selected = false
+ document.getElementById("drinks").options[3].selected = true
+ document.getElementById("drinks").options[4].selected = false
+ document.getElementById("drinks").options[5].selected = false
+ form1.dessert.selectedIndex = 0
+ form1.second.selectedIndex = 0
+}
+</script>
+<form name="form1">
+<table width="500">
+<tr>
+<td>Холодные закуски</td><td>Первое блюдо</td><td>Напитки</td>
+</tr>
+<tr>
+<td><select id="cold" name="cold">
+<option value="50">Салат</option>
+<option value="300">Семга</option>
+<option value="280">Крабовые палочки</option>
+<option value="200">Ветчина</option>
+</select></td>
+<td><select id="first" name="first">
+<option value="90">Борщ</option>
+<option value="120">Окрошка с курицей</option>
+<option value="130">Окрошка с креветками</option>
+<option value="150">Окрошка с лососем</option>
+</select></td>
+<td rowspan="3">
+<select multiple size="4" id="drinks" name="drinks">
+<option value="65" selected>Сок</option>
+<option value="50" selected>Кока-Кола</option>
+<option value="55">Пепси-Кола</option>
+<option value="30" selected>Чай</option>
+<option value="100">Red Bull</option>
+<option value="90">Adrenaline Rush</option>
+</select></td>
+</tr>
+<tr>
+<td>Десерт</td><td>Второе блюдо</td>
+</tr>
+<tr>
+<td><select id="dessert" name="dessert">
+<option value="30">Мороженое</option>
+<option value="32">Апельсин</option>
+<option value="33">Банан</option>
+<option value="34">Грейпфрут</option>
+</select></td>
+<td><select id="second" name="second">
+<option value="100">Плов</option>
+<option value="130">Сосиски в соусе</option>
+<option value="115">Ленивые голубцы</option>
+<option value="121">Зразы с грибами</option>
+</select></td>
+</tr>
+</table>
+<br>
+<input type="button" value="Заказать обед" onclick="ev()"> 
+<input type="button" value="Очистить" onclick="res()">
+</form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №1. Задание №3</title>
+</head>
+<body>
+<h3>Расчет дохода</h3>
+<script language="JavaScript">
+  function ev(){
+  var newWindow = window.open()
+newWindow.document.write('<html><title>Результат</title><body><h3>Результат (новая страница)</h3>')
+newWindow.document.write('<form>')
+newWindow.document.write('<table border="1px solid black">')
+newWindow.document.write('<th>Доход</th><th>Налог</th><th>На руки</th>')
+newWindow.document.write('<tr><td>'+form1.salary.value+'</td>');
+newWindow.document.write('<td>'+eval(form1.salary.value*0.13)+'</td>') 
+newWindow.document.write('<td>'+eval(form1.salary.value-form1.salary.value*0.13)+'</td></tr>') 
+newWindow.document.write('</table>')
+newWindow.document.write('</form></body></html>')
+   }
+</script>
+<form name="form1">
+<p>Начислена зарплата <input name="salary" id="sal1" value="1000" size="5"></p>
+<input type="button" value="Расчет" onclick="ev()"> 
+<input type="button" value="Отменить" onclick="document.getElementById('sal1').value=''">
+</form>
+</body>
+</html>

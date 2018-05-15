@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №4. Задание №1</title>
+  <style type="text/css">
+ table {
+ width: 500px;
+ height: 300px;
+ }
+ td{
+ text-align: center;
+ vertical-align:center;
+ }
+ </style>
+  </head>
+<body onload="runFire(0,0)">
+<script language="JavaScript">
+function runFire(i,j){
+document.getElementById("table1").rows[j].cells[i].innerHTML="<image src='fire.png'>"
+  var i1=i
+  var j1=j
+ if (i==0 && j==0){
+   i1=i+1
+   document.getElementById("table1").rows[j+1].cells[i].innerHTML="+"
+  }
+  if (i>0 && i<7 && j==0){
+   i1=i+1
+   document.getElementById("table1").rows[j].cells[i-1].innerHTML="+"   
+  }
+  if (i==7 && j==0){
+   i1=2
+   j1=j+1
+   document.getElementById("table1").rows[j].cells[i-1].innerHTML="+"
+  }
+  if (i==2 && j==1){
+   i1=1
+   j1=j+1
+   document.getElementById("table1").rows[0].cells[7].innerHTML="+"
+  }
+  if (i==1 && j==2){
+   i1=1
+   j1=j+1
+   document.getElementById("table1").rows[1].cells[2].innerHTML="+"
+  }
+  if (i==1 && j==3){
+   i1=7
+   j1=j+1
+   document.getElementById("table1").rows[2].cells[1].innerHTML="+"
+  }
+  if (i==7 && j==4){
+   i1=i-1
+   document.getElementById("table1").rows[3].cells[1].innerHTML="+"
+  } 
+  if (i>0 && i<7 && j==4){
+   i1=i-1
+   document.getElementById("table1").rows[j].cells[i+1].innerHTML="+"
+  }
+  if (i==0 && j==4){
+   j1=j-1
+   document.getElementById("table1").rows[j].cells[i+1].innerHTML="+"
+  }
+  if (i==0 && j>0 && j<4){
+   j1=j-1
+   document.getElementById("table1").rows[j+1].cells[i].innerHTML="+"
+  }
+var timer = setTimeout(function(){runFire(i1,j1)},500)
+}
+</script>
+<form>
+<table id="table1">
+<tr><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td></tr>
+<tr><td>+</td><td colspan="6" rowspan="3"><h1><a href="lab4.task2.html">ВХОД</a></h1></td><td>+</td></tr>
+<tr><td>+</td><td>+</td></tr>
+<tr><td>+</td><td>+</td></tr>
+<tr><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td></tr>
+</table>
+</form>
+</body>
+</html>

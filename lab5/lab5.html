@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №5</title>
+  </head>
+<body>
+<script language="JavaScript">
+function rotatePicture(angle){
+ document.getElementById("R1").disabled=true
+ var leftPE = document.getElementById("electron").style.left
+ document.getElementById("electron").style.left=Number(leftPE.replace("px",""))+Math.cos(angle*Math.PI/180)+"px"
+ var topPE = document.getElementById("electron").style.top
+ document.getElementById("electron").style.top=Number(topPE.replace("px",""))+Math.sin(angle*Math.PI/180)+"px"
+ var angle1=angle+1
+ if (angle1>359){
+  angle1=0
+ }
+ var timer = setTimeout(function(){rotatePicture(angle1)},10)
+}
+function startR(){
+document.getElementById("R2").disabled=true
+ var LR = 1
+ var TR = 1
+ if (Math.random()>0.5){
+  LR=-1
+ }
+ if (Math.random()>0.5){
+  TR = -1
+ } 
+ var leftPB = document.getElementById("base").style.left
+ document.getElementById("base").style.left=Number(leftPB.replace("px",""))+LR*(Math.round(Math.random()*(15-5))+5)+"px"
+ var topPB = document.getElementById("base").style.top
+ document.getElementById("base").style.top=Number(topPB.replace("px",""))+TR*(Math.round(Math.random()*(15-5))+5)+"px"
+ var timer = setTimeout(function(){startR()},500)
+}
+function beginR(){
+ document.getElementById("base").style.left="300px"
+ document.getElementById("base").style.top="150px"
+}
+</script>
+<h2>Атом "блуждает" по окну, а электрон<br> "падает" на ядро атома.</h2>
+<input id="R1" type="button" value="Вращение" onclick="rotatePicture(0)">
+<input id="R2" type="button" value="Старт" onclick="startR()">
+<input type="button" value="Начало" onclick="beginR()">
+<hr>
+<div id="base" style="width:200px; height:200px; background:#C0C0C0; position:relative; left:300px; top:150px">
+ <div style="width:34px; height:34px; border-radius:17px; background:#0000FF; position:absolute; left:83px; top:83px"></div>
+ <div id="electron" style="width:12px; height:12px; border-radius:6px; background:#0000FF; position:absolute; left:70px; top:50px"></div>
+</div>
+</body>
+</html>

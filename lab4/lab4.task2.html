@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №4. Задание №2</title>
+  <style type="text/css">
+ table {
+ width: 200px;
+ }
+ td{
+ text-align: left;
+ }
+</style>
+  </head>
+<body>
+<script language="JavaScript">
+  function throw1()
+  {
+   if (Number(form1.cash.value)>=300){
+    alert("Игра закончилась победой")
+   }
+   if (Number(form1.cash.value)<=0){
+    alert("Игра закончилась поражением")
+   }   
+   var rate = 0.62
+   for (var i=0; i<3; i++){
+    if (document.forms[0].l[i].checked){
+     rate=document.forms[0].l[i].value
+    }
+   }
+   if (Number(form1.odds.value)>80 && Number(form1.cash.value)>=80){
+    form1.odds.value=80
+   }
+   if (Number(form1.odds.value)>Number(form1.cash.value) && Number(form1.cash.value)<=80){
+    form1.odds.value=form1.cash.value
+   }
+   if (Number(form1.odds.value)>Number(form1.cash.value)){
+    form1.odds.value=form1.cash.value
+   }
+   var prob = Math.round(Math.random())
+   if (prob == 0){
+    form1.cash.value = Number(form1.cash.value)+Math.round(rate*Number(form1.odds.value))
+   }
+   if (prob ==1){
+    form1.cash.value = Number(form1.cash.value)-Math.round(rate*Number(form1.odds.value))
+   }
+   var tryNumber = form1.tryN.value
+   form1.tryN.value= Number(tryNumber)+1  
+  }
+  function res()
+  {
+   document.forms[0].l[0].checked=true
+   form1.odds.value=10
+   form1.cash.value=100  
+   form1.tryN.value=0
+  }  
+</script>
+<h3>ОРЕЛ или РЕШКА</h3>
+<br>
+<form name="form1">
+<b>Выберите Ваш уровень:</b><br>
+<input type="radio" name="l" value="0.62" checked>новичок<br>
+<input type="radio" name="l" value="0.57">любитель<br>
+<input type="radio" name="l" value="0.52">профи
+<hr>
+<table>
+<tr><td><b>Старт</b></td><td><b>Финиш</b></td></tr>
+<tr><td>100 руб.</td><td>300 руб.</td></tr>
+</table>
+<hr>
+<b>Ваша ставка:</b><br>
+<table>
+<tr><td><input value="10" size="1" name="odds">руб.</td><td><input type="button" value="Бросок" onclick="throw1()"></td></tr>
+</table>
+<hr>
+<b>У Вас в кармане:</b><br>
+<input value="100" size="1" name="cash">руб.
+<hr>
+<b>Уже сделано</b><br>
+<input value="0" size="1" name="tryN"> бросков монеты.
+<hr>
+<input type="button" value="Сброс" onclick="res()">
+</form>
+</body>
+</html>

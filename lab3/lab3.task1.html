@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №3. Задание №1</title>
+  <style type="text/css">
+ table,tr,td {
+ border: solid 1px black;
+ }
+</style>
+</head>
+<body>
+<script language="JavaScript">
+function setp(){
+var marks = [5,5,4,5]
+for (var i=0; i<4; i++){
+ if (document.forms[0].m[i].checked){
+  marks[0]=document.forms[0].m[i].value
+ }
+}
+for (var i=0; i<4; i++){
+ if (document.forms[0].f[i].checked){
+  marks[1]=document.forms[0].f[i].value
+ }
+}
+for (var i=0; i<4; i++){
+ if (document.forms[0].h[i].checked){
+  marks[2]=document.forms[0].h[i].value
+ }
+}
+for (var i=0; i<4; i++){
+ if (document.forms[0].i[i].checked){
+  marks[3]=document.forms[0].i[i].value
+ }
+}
+var math = marks[0]
+var physics = marks[1]
+var history = marks[2]
+var informatics = marks[3]
+var rate = (Number(math)+Number(physics)+Number(history)+Number(informatics))/4
+if (rate == 5)
+{form1.stip.value="1000 рублей"}
+if (rate>=4 && rate<5)
+{form1.stip.value="750 рублей"}
+if (rate<4)
+{form1.stip.value="0 рублей"}
+if (marks[0]==2 || marks[1]==2 || marks[2]==2 || marks[3]==2)
+{form1.stip.value="0 рублей"}
+}
+function clean(){
+form1.stip.value=""
+}
+</script>
+<h3>Назначение стипендии</h3>
+<form name="form1">
+<table>
+<tr>
+<td></td><td>Отлично</td><td>Хорошо</td><td>Удовл.</td><td>Не сдал</td>
+</tr>
+<tr>
+<td>Математика</td>
+<td><input type="radio" name="m" value="5" checked></td>
+<td><input type="radio" name="m" value="4"></td>
+<td><input type="radio" name="m" value="3"></td>
+<td><input type="radio" name="m" value="2"></td>
+</tr>
+<tr>
+<td>Физика</td>
+<td><input type="radio" name="f" value="5" checked></td>
+<td><input type="radio" name="f" value="4"></td>
+<td><input type="radio" name="f" value="3"></td>
+<td><input type="radio" name="f" value="2"></td>
+</tr>
+<tr>
+<td>История</td>
+<td><input type="radio" name="h" value="5"></td>
+<td><input type="radio" name="h" value="4" checked></td>
+<td><input type="radio" name="h" value="3"></td>
+<td><input type="radio" name="h" value="2"></td>
+</tr>
+<tr>
+<td>Информатика</td>
+<td><input type="radio" name="i" value="5" checked></td>
+<td><input type="radio" name="i" value="4"></td>
+<td><input type="radio" name="i" value="3"></td>
+<td><input type="radio" name="i" value="2"></td>
+</tr>
+</table>
+<br>
+<input type="button" value="Назначить стипендию" onclick="setp()"> <input type="button" value="Очистить" onclick="clean()">
+<br><br>
+Стипендия назначена в размере <input name="stip" value="750 рублей" size="10">
+</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №1. Задание №1</title>
+ </head>
+ <body onload="startTime()">
+<h2 style="color:blue">Запусти часы</h2>
+<input id="date" name="date">
+<script type="text/javascript">
+function startTime(){
+var d = new Date()
+var monthname=new Array("января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря")
+var date = d.getDate()
+var month = monthname[d.getMonth()]
+var year = d.getFullYear()
+var hours = d.getHours()
+var minutes = d.getMinutes()
+var seconds = d.getSeconds()
+minutes = checkTime(minutes)
+seconds = checkTime(seconds)
+var clock = date + " " + month + " " + year + " г. " + hours + ":" + minutes + ":" + seconds
+document.getElementById('date').value = clock
+var timer = setTimeout(function(){startTime()},1000)
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №2. Задание №2</title>
+</head>
+<body>
+<script language="JavaScript">
+function build(){
+ document.images[0].height=2*form1.ao1.value
+ document.images[1].height=2*form1.ao2.value
+ document.images[2].height=2*form1.ao3.value
+ document.images[3].height=2*form1.ao4.value
+ document.images[0].alt=form1.ao1.value
+ document.images[1].alt=form1.ao2.value
+ document.images[2].alt=form1.ao3.value
+ document.images[3].alt=form1.ao4.value
+ document.images[0].title=form1.ao1.value
+ document.images[1].title=form1.ao2.value
+ document.images[2].title=form1.ao3.value
+ document.images[3].title=form1.ao4.value
+}
+</script>
+<form name="form1">
+<h3>Доход предприятий (млн.руб)</h3>
+<br>
+<table style="width:300px; border: solid 1px black;">
+<tr><td style="border: solid 1px black;">АО-1</td><td style="border: solid 1px black;"><input name="ao1" value="10" size="10"></td></tr>
+<tr><td style="border: solid 1px black;">АО-2</td><td style="border: solid 1px black;"><input name="ao2" value="20" size="10"></td></tr>
+<tr><td style="border: solid 1px black;">АО-3</td><td style="border: solid 1px black;"><input name="ao3" value="50" size="10"></td></tr>
+<tr><td style="border: solid 1px black;">АО-4</td><td style="border: solid 1px black;"><input name="ao4" value="40" size="10"></td></tr>
+<tr><td colspan="2" align="center"  style="border: solid 1px black;"><input type="button" value="Построить диаграмму" onclick="build()"></td></tr>
+</table>
+<br>
+<h3>Диаграмма</h3>
+<table>
+<tr>
+<td style="vertical-align:bottom"><image src="p1.gif" alt="10" title="10" height="20" width="70"></td>
+<td style="vertical-align:bottom"><image src="p2.gif" alt="20" title="20" height="40" width="70"></td>
+<td style="vertical-align:bottom"><image src="p3.gif" alt="50" title="50" height="100" width="70"></td>
+<td style="vertical-align:bottom"><image src="p4.gif" alt="40" title="40" height="80" width="70"></td>
+</tr>
+<tr>
+<td align="center">АО-1</td><td align="center">АО-2</td>
+<td align="center">АО-3</td><td align="center">АО-4</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

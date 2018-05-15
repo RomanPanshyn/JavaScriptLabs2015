@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Лабораторная работа по JavaScript №1. Задание №4</title>
+</head>
+<body>
+<form name="form1">
+<table width="50%">
+<th>Просмотр рисунка</th><th>Перестановка рисунков</th>
+<tr><td><image src="p1.gif"></td>
+<td><image src="p1.gif"> <image src="p2.gif"> <image src="p3.gif"></td></tr>
+<tr><td>Введите имя файла с рисунком:</td><td>Рисунки с номерами</td></tr>
+<tr><td><input value="p1.gif" name="inp1"> <input type="button" value="Показать" onclick="ev()"></td>
+<td><input size="1" name="inp2"> и <input size="1" name="inp3"></td></tr>
+<tr><td></td><td><input type="button" value="Поменять местами" onclick="rep()"></td></tr>
+</table>
+</form>
+<script language="JavaScript">
+  function ev(){
+   document.images[0].src=form1.inp1.value;
+   }
+  function rep(){
+   var i1 = document.images[form1.inp2.value].src
+   document.images[form1.inp2.value].src=document.images[form1.inp3.value].src
+   document.images[form1.inp3.value].src=i1
+}  
+</script>
+</body>
+</html>
